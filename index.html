@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zodiac</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#000;--text:#fff}*{box-sizing:border-box}body{margin:0;font-family:"Inter",sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;display:flex;flex-direction:column;min-height:100vh}.clouds{position:fixed;inset:0;overflow:hidden;z-index:0}.cloud{position:absolute;background:rgba(255,255,255,0.16);border-radius:300px;filter:blur(28px);animation:drift linear infinite;pointer-events:none}.layer1{width:600px;height:230px;opacity:.22;animation-duration:120s}.layer2{width:450px;height:180px;opacity:.18;animation-duration:90s}.layer3{width:300px;height:130px;opacity:.14;animation-duration:70s}.clouds .cloud:nth-child(1){top:5%;left:-600px}.clouds .cloud:nth-child(2){top:22%;left:-900px}.clouds .cloud:nth-child(3){top:44%;left:-750px}.clouds .cloud:nth-child(4){top:78%;left:-850px}.clouds .cloud:nth-child(5){top:12%;left:-950px}.clouds .cloud:nth-child(6){top:56%;left:-980px}.clouds .cloud:nth-child(7){top:33%;left:-820px}.clouds .cloud:nth-child(8){top:90%;left:-720px}.clouds .cloud:nth-child(9){top:67%;left:-1000px}.clouds .cloud:nth-child(10){top:40%;left:-890px}.clouds .cloud:nth-child(11){top:15%;left:-780px}.clouds .cloud:nth-child(12){top:73%;left:-950px}@keyframes drift{0%{transform:translateX(0)}100%{transform:translateX(240vw)}}main{z-index:5;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;max-width:900px;margin:0 auto;padding:40px 20px;text-align:center}header{margin-bottom:60px}h1{font-size:clamp(2.5rem,6vw,4.3rem);font-weight:800;letter-spacing:3px;animation:fadeIn 1.3s ease;text-shadow:0 0 20px rgba(255,255,255,.35)}.subtitle{font-size:clamp(1rem,2.5vw,1.3rem);margin-top:10px;animation:fadeIn 2s ease;opacity:.9}.btn{display:inline-block;margin:20px 15px;padding:18px 38px;border:5px solid var(--text);border-radius:25px;background:rgba(255,255,255,.05);color:var(--text);font-size:1.2rem;font-weight:600;text-decoration:none;transition:.28s ease;cursor:pointer}.btn i{margin-right:10px}.btn:hover{background:rgba(255,255,255,.15);transform:scale(1.1);box-shadow:0 0 20px rgba(255,255,255,.35)}section{margin-bottom:60px}h2{font-size:clamp(1.8rem,4vw,2.3rem);font-weight:700;text-shadow:0 0 10px rgba(255,255,255,.3)}.code-box{background:rgba(255,255,255,.08);padding:16px;border-radius:15px;border:2px solid rgba(255,255,255,.25);font-family:monospace;max-width:100%;margin:20px auto;color:#ddd;box-shadow:0 0 8px rgba(255,255,255,.1);overflow-x:auto}ul{text-align:left;display:inline-block;margin-top:15px;line-height:1.9rem;font-size:1.15rem}ul i{margin-right:8px;opacity:.85}footer{text-align:center;padding:40px;opacity:.7;margin-top:auto}@keyframes fadeIn{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:translateY(0)}}
+</style>
+</head>
+<body>
+<div class="clouds">
+<div class="cloud layer1"></div>
+<div class="cloud layer2"></div>
+<div class="cloud layer3"></div>
+<div class="cloud layer2"></div>
+<div class="cloud layer3"></div>
+<div class="cloud layer1"></div>
+<div class="cloud layer2"></div>
+<div class="cloud layer1"></div>
+<div class="cloud layer3"></div>
+<div class="cloud layer2"></div>
+<div class="cloud layer1"></div>
+<div class="cloud layer3"></div>
+</div>
+<main>
+<header>
+<h1><i class="fa-solid fa-moon"></i> Zodiac</h1>
+<p class="subtitle"><i class="fa-solid fa-book"></i> A cheat for Kahoot, Blooket, & Gimkit. </p>
+</header>
+<section>
+<h2><i class="fa-solid fa-rocket"></i> Launch Zodiac</h2>
+<p>Load Zodiac instantly on any webpage.</p>
+<a href="javascript:(()=>{let s=document.createElement('script');s.src='https://cdn.jsdelivr.net/gh/Darkdragonzxs/zodiac-@tree/main';document.body.appendChild(s);})();" class="btn"><i class="fa-solid fa-rocket"></i> Launch Zodiac</a>
+<h3 style="margin-top:40px;"><i class="fa-solid fa-star"></i> Install Bookmarklet</h3>
+<p>Drag this button into your bookmarks bar:</p>
+<a href="javascript:(()=>{let s=document.createElement('script');s.src='https://cdn.jsdelivr.net/gh/Darkdragonzxs/zodiac-@tree/main';document.body.appendChild(s);})();" class="btn"><i class="fa-solid fa-star"></i> Zodiac Bookmarklet</a>
+<h3 style="margin-top:25px;">Copy Code</h3>
+<div class="code-box">javascript:(()=>{let s=document.createElement('script');s.src="https://cdn.jsdelivr.net/gh/Darkdragonzxs/zodiac-@tree/main";document.body.appendChild(s);})();</div>
+</section>
+<section>
+<h2><i class="fa-solid fa-circle-info"></i> About Zodiac</h2>
+<p>Zodiac is a elegant cheat for kahoot, gimkit, and blooket, in one bookmarklet.</p>
+<ul>
+<li><i class="fa-solid fa-bolt"></i> Instant loading</li>
+<li><i class="fa-solid fa-globe"></i> Universal Exploits</li>
+<li><i class="fa-regular fa-moon"></i> Elegant black & white theme</li>
+</ul>
+</section>
+</main>
+<footer>discord.gg/zxs</footer>
+</body>
+</html>
