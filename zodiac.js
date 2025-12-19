@@ -35,17 +35,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const categories = [
         { name: "Gold", icon: "fa-coins" },
         { name: "Hack", icon: "fa-bug" },
-        { name: "Fish", icon: "fa-fish" }
+        { name: "Frenzy", icon: "fa-fish" }
     ];
-
-    const scriptLibrary = {
-        gold1: () => alert("Gold Script 1 Running!"),
-        gold2: () => alert("Gold Script 2 Running!"),
-        hack1: () => alert("Hack Script 1 Running!"),
-        hack2: () => alert("Hack Script 2 Running!"),
-        fish1: () => alert("Fish Script 1 Running!"),
-        fish2: () => alert("Fish Script 2 Running!")
-    };
 
     const menus = {
         gold: [
@@ -56,11 +47,32 @@ document.addEventListener("DOMContentLoaded", () => {
             { name: "Hack Script 1", key: "hack1" },
             { name: "Hack Script 2", key: "hack2" }
         ],
-        fish: [
-            { name: "Fish Script 1", key: "fish1" },
-            { name: "Fish Script 2", key: "fish2" }
+        frenzy: [
+            { name: "Crash", key: "crash" },
+            { name: "Distract", key: "distract" },
+            { name: "Frenzy", key: "frenzy" },
+            { name: "Lure", key: "lure" },
+            { name: "Set", key: "set" }
         ]
     };
+
+    function loadAndRunScript(scriptName) {
+        let pathPrefix = "";
+        if (scriptName.startsWith("gold")) {
+            pathPrefix = "/blooket/gold/";
+        } else if (scriptName.startsWith("hack")) {
+            pathPrefix = "/blooket/hack/";
+        } else {
+            pathPrefix = "/blooket/fish/";
+        }
+        const scriptUrl = `https://cdn.jsdelivr.net/gh/Darkdragonzxs/zodiac-@main/blooket${pathPrefix}${scriptName}.js`;
+        fetch(scriptUrl)
+            .then(response => response.text())
+            .then(scriptText => {
+                eval(scriptText);
+            })
+            .catch(error => console.error("Error loading script:", error));
+    }
 
     function animateOpen(el) {
         el.style.display = "flex";
@@ -89,8 +101,6 @@ document.addEventListener("DOMContentLoaded", () => {
             alignItems: "center",
             transition: "opacity .2s"
         });
-        btn.addEventListener("mouseenter", () => btn.style.opacity = "0.6");
-        btn.addEventListener("mouseleave", () => btn.style.opacity = "1");
         topBar.appendChild(btn);
 
         const dropdown = document.createElement("div");
@@ -126,29 +136,27 @@ document.addEventListener("DOMContentLoaded", () => {
             });
             opt.addEventListener("mouseenter", () => opt.style.opacity = "0.6");
             opt.addEventListener("mouseleave", () => opt.style.opacity = "1");
-            opt.addEventListener("click", () => scriptLibrary[item.key]());
+            opt.addEventListener("click", () => loadAndRunScript(item.key));
             dropdown.appendChild(opt);
         });
 
-        btn.addEventListener("click", e => {
-            e.stopPropagation();
-
-            if (dropdown.style.display === "flex") {
-                animateClose(dropdown);
-            } else {
-                dropdown.style.display = "flex";
-                dropdown.style.opacity = "0";
-                dropdown.style.transform = "translateY(-6px)";
-
-                const rect = btn.getBoundingClientRect();
-                const dropdownWidth = dropdown.offsetWidth;
-
-                dropdown.style.left = rect.left + rect.width / 2 - dropdownWidth / 2 + "px";
-                dropdown.style.top = rect.bottom + "px";
-
-                animateOpen(dropdown);
-            }
-        });
+        if (menus[btn.dataset.cat]) {
+            btn.addEventListener("click", e => {
+                e.stopPropagation();
+                if (dropdown.style.display === "flex") {
+                    animateClose(dropdown);
+                } else {
+                    dropdown.style.display = "flex";
+                    dropdown.style.opacity = "0";
+                    dropdown.style.transform = "translateY(-6px)";
+                    const rect = btn.getBoundingClientRect();
+                    const dropdownWidth = dropdown.offsetWidth;
+                    dropdown.style.left = rect.left + rect.width / 2 - dropdownWidth / 2 + "px";
+                    dropdown.style.top = rect.bottom + "px";
+                    animateOpen(dropdown);
+                }
+            });
+        }
 
         document.addEventListener("click", e => {
             if (!btn.contains(e.target) && !dropdown.contains(e.target)) {
